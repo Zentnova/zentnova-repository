@@ -17,5 +17,5 @@
 
 * ✅ เพิ่ม option --empty เพื่อสร้างไฟล์ Repository เปล่า
 * ✅ ไฟล์เปล่ายังคงมี __construct() และ Model
-* ✅ สามารถกำหนด Model เองผ่าน --model=
+* ✅ สามารถกำหนด Model เองผ่าน --model=[User]
 * ✅ ถ้าไม่กำหนด --model จะใช้ชื่อ Repository แล้วตัด "Repository" ออกเป็น Model
