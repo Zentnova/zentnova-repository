@@ -1,0 +1,41 @@
+{
+  "name": "zentnova/repository",
+  "description": "Laravel package for generating repositories",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zuntnova",
+      "email": "sunsu.s@zentnova.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "illuminate/support": "^10 || ^11 || ^12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zentnova\\Repository\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Zentnova\\Repository\\RepositoryServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.0",
+    "orchestra/testbench": "^8.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "path",
+      "url": "https://github.com/Zentnova/zentnova-repository"
+    }
+  ]
+
+}

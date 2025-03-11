@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{modelName}};
+
+class {{className}}
+{
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = resolve({{modelName}}::class);
+    }
+}

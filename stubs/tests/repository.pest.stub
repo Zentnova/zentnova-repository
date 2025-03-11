@@ -1,0 +1,64 @@
+<?php
+
+use App\Repositories\{{className}};
+use App\Models\{{modelName}};
+
+beforeEach(function () {
+    $this->repository = new {{className}}();
+});
+
+test('สามารถดึงข้อมูลทั้งหมดจาก Repository', function () {
+    $data = $this->repository->all();
+    expect($data)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);
+});
+
+test('สามารถสร้างข้อมูลใหม่ใน Repository', function () {
+    $data = $this->repository->store([
+        // ระบุข้อมูลที่จำเป็นสำหรับโมเดลของคุณ
+    ]);
+
+    expect($data)->toBeInstanceOf({{modelName}}::class);
+});
+
+test('สามารถค้นหาข้อมูลจาก Repository', function () {
+    $model = {{modelName}}::factory()->create();
+    $result = $this->repository->find($model->id);
+
+    expect($result)->toBeInstanceOf({{modelName}}::class);
+    expect($result->id)->toBe($model->id);
+});
+
+test('สามารถอัปเดตข้อมูลใน Repository', function () {
+    $model = {{modelName}}::factory()->create();
+    $updated = $this->repository->update($model->id, [
+        // ระบุฟิลด์ที่ต้องการอัปเดต
+    ]);
+
+    expect($updated)->not->toBeNull();
+});
+
+test('สามารถ Soft Delete ข้อมูลใน Repository', function () {
+    $model = {{modelName}}::factory()->create();
+    $deleted = $this->repository->delete($model->id);
+
+    expect($deleted)->toBeTrue();
+    expect({{modelName}}::withTrashed()->find($model->id))->not->toBeNull();
+});
+
+test('สามารถกู้คืนข้อมูลที่ถูกลบ', function () {
+    $model = {{modelName}}::factory()->create();
+    $this->repository->delete($model->id);
+    $restored = $this->repository->restore($model->id);
+
+    expect($restored)->toBeTrue();
+    expect({{modelName}}::find($model->id))->not->toBeNull();
+});
+
+test('สามารถลบข้อมูลถาวร', function () {
+    $model = {{modelName}}::factory()->create();
+    $this->repository->delete($model->id);
+    $forceDeleted = $this->repository->forceDelete($model->id);
+
+    expect($forceDeleted)->toBeTrue();
+    expect({{modelName}}::withTrashed()->find($model->id))->toBeNull();
+});
