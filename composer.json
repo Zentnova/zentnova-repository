@@ -37,8 +37,8 @@
       "url": "https://github.com/Zentnova/zentnova-repository"
     },
     {
-      "type": "path",
-      "url": " https://zentnova-admin@bitbucket.org/zentnova/zentnova-repository.git"
+      "type": "vcs",
+      "url": "https://zentnova-admin@bitbucket.org/zentnova/zentnova-repository.git"
     }
   ]
 
