@@ -35,6 +35,10 @@
     {
       "type": "path",
       "url": "https://github.com/Zentnova/zentnova-repository"
+    },
+    {
+      "type": "vcs",
+      "url": "https://zentnova-admin@bitbucket.org/zentnova/zentnova-repository.git"
     }
   ]
 
