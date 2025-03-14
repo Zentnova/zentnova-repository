@@ -1,5 +1,11 @@
 # สร้างโครงสร้าง Package
 
+## การติดตั้ง
+
+`
+composer require zentnova/repository
+`
+
 *สร้าง Repository คำสั่ง ดังนี้:*
 
 ```
