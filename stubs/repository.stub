@@ -65,7 +65,7 @@ class {{className}}
     /**
     *สร้างใหม่ Model
     */
-    public function create(array $data)
+    public function store(array $data)
     {
        return $this->valuable($this->model,$data);
     }
