@@ -46,17 +46,49 @@ class {{className}}
     }
 
     /**
-     * ค้นหาข้อมูลตามเงื่อนไข
+     * ค้นหาข้อมูลตามเงื่อนไข AND
      */
-    public function where(array $conditions)
+    public function whereAll(array $conditions,$search)
     {
-        return $this->model->where($conditions)->get();
+        return $this->model->whereAll($conditions,'LIKE',"%$search%")->get();
+    }
+
+    /**
+    * ค้นหาข้อมูลตามเงื่อนไข OR
+    */
+    public function whereAny(array $conditions,$search)
+    {
+       return $this->model->whereAny($conditions,'LIKE',"%$search%")->get();
+    }
+
+
+    /**
+    *สร้างใหม่ Model
+    */
+    public function create(array $data)
+    {
+       return $this->valuable($this->model,$data);
+    }
+
+    /**
+    *แก้ไข Model
+    */
+    public function valuable({{modelName}} $model,array $data)
+    {
+       $data = (object) $data;
+
+       !isset($data->name) ?: $model->name = $data->name;
+       //
+
+       $model->save();
+
+       return $model;
     }
 
     /**
      * สร้างข้อมูลใหม่
      */
-    public function store(array $data)
+    public function create(array $data)
     {
         return $this->model->create($data);
     }
